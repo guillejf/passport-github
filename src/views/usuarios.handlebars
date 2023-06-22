@@ -1,0 +1,39 @@
+<div>
+  <h4>LISTADO DE USUARIOS</h4>
+  {{#each usuarios}}
+    <div>
+      <p>nombre {{this.firstName}}, edad {{this.email}}</p>
+    </div>
+  {{/each}}
+  {{!-- totalDocs:
+  {{pagination.totalDocs}}
+  limit:
+  {{pagination.limit}}
+  totalPages:
+  {{pagination.totalPages}}
+  page:
+  {{pagination.page}}
+  pagingCounter:
+  {{pagination.pagingCounter}}
+  hasPrevPage:
+  {{pagination.hasPrevPage}}
+  hasNextPage:
+  {{pagination.hasNextPage}}
+  prevPage:
+  {{pagination.prevPage}}
+  nextPage:
+  {{pagination.nextPage}} --}}
+  {{#if pagination.hasPrevPage}}
+    <a style='font-size: 20;' href='/users/?page={{pagination.prevPage}}'>←{{pagination.prevPage}}</a>
+  {{/if}}
+  <a style='font-size: 20;' href='#'>{{pagination.page}}</a>
+  {{#if pagination.hasNextPage}}
+    <a style='font-size: 20;' href='/users/?page={{pagination.nextPage}}'>→{{pagination.nextPage}}</a>
+  {{/if}}
+  <br />
+  <br />
+  {{#each links}}
+    <a href='{{this.href}}'>{{this.label}}</a>
+  {{/each}}
+
+</div>
